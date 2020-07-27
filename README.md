@@ -13,4 +13,4 @@ A program which recognises the tasks given by voice and perform given task.
 
 Enter your receiver's *name* with their *mail id* in **mail_list** file.
 
-***If you want to loop the program simply un-comment the line 61 and comment line 62***
+***If you want to loop the program simply un-comment the line 62 and comment line 63***
