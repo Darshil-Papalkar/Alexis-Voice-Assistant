@@ -6,7 +6,7 @@ import webbrowser
 import os
 import random
 import smtplib
-from app_opening import mail, check_email
+from mail_list import mail, check_email
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -50,9 +50,10 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    file = open('C:\\Users\\DARSHIL\\OneDrive_1\\OneDrive\\Desktop\\python-Voice Recognizer\\JARVIS\\pwd.txt','r')
-    server.login('papalkardarshil12@gmail.com',file.readline())
-    server.sendmail('papalkardarshil12@gmail.com', to, content)
+    # Make a text file to store your personal mail-id password in the same directory
+    file = open('path\\JARVIS\\pwd.txt','r') # open the text file and read line
+    server.login('mail_id@gmail.com',file.readline())
+    server.sendmail('mail_id@gmail.com', to, content)
     server.close()
 
 
@@ -62,6 +63,7 @@ if __name__ == "__main__":
     if 1:
 
         query = takeCommand().lower()
+        
         if 'wikipedia' in query:
             speak('Searching Wikipedia...')
             query = query.replace('wikipedia','')
@@ -70,6 +72,7 @@ if __name__ == "__main__":
             speak('According to Wikipedia')
             print(results)
             speak(results)
+            
         elif 'open youtube' in query:
             url = "https://www.youtube.com/"
             webbrowser.get().open_new_tab(url)
@@ -79,9 +82,8 @@ if __name__ == "__main__":
             webbrowser.get().open_new_tab(url)
         
         elif 'play video songs' in query:
-            music_dir = 'D:\\Video Songs'
+            music_dir = 'path' # enter the path of the video file directory
             songs = os.listdir(music_dir)
-            # print(songs)
             file = random.randint(0,len(songs)-1)
             os.startfile(os.path.join(music_dir, songs[file]))
 
@@ -90,7 +92,7 @@ if __name__ == "__main__":
             speak(f"Sir, the time is {strTime}")
 
         elif 'open code' in query:
-            codePath = 'D:\\MI\\VSCode-win32-x64-1.47.2\\Code.exe'
+            codePath = 'path\\Code.exe' # enter the path of the VS-code application
             os.startfile(codePath)
         
         elif 'email' in query:
