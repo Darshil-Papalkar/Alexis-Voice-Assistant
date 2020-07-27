@@ -1,7 +1,8 @@
 email = dict()
-email['myself']='papalkardarshil13@gmail.com'
-email['father']='tushar.papalkar@gmail.com'
-email['mother']='shraddhapapalkar@gmail.com'
+email['myself']='myself@gmail.com' # enter the mail id 
+email['father']='father@gmail.com' # enter the mail id
+email['mother']='mother@gmail.com' # enter the mail id
+
 def mail(K):
     for k,v in email.items():
         if K in k:
