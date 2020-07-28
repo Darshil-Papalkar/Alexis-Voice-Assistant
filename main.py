@@ -22,7 +22,7 @@ def speak(audio):
     engine.runAndWait()
 
 def speak_slow(audio):
-    engine.setProperty('rate', 180)
+    engine.setProperty('rate', 170)
     speak(audio)
 
 def translate(word):
@@ -55,7 +55,7 @@ def translate(word):
 def speak_news():
     url = ('http://newsapi.org/v2/top-headlines?'
        'country=in&'
-       'apiKey=bee2f1da8603454a9ff766080679ed05')
+       'apiKey=<API KEY>') # enter api key
     news = requests.get(url).text
     news_dict = json.loads(news)
     arts = news_dict['articles']
@@ -102,6 +102,7 @@ def cross_check(word):
     if word.isdigit():
         return(word)
     else:
+        # if digit is not recognised spell number in words like --" o n e "
         word = word.lower()
         if len(get_close_matches(word, data.keys())) > 0:
             for a in range(len(get_close_matches(word, data.keys()))):
@@ -127,9 +128,10 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    file = open('C:\\Users\\DARSHIL\\OneDrive_1\\OneDrive\\Desktop\\python-Voice Recognizer\\JARVIS\\pwd.txt','r')
-    server.login('papalkardarshil12@gmail.com',file.readline())
-    server.sendmail('papalkardarshil12@gmail.com', to, content)
+    # enter file_path of password stored in text file
+    file = open('file_path\\pwd.txt','r')
+    server.login('sender_mail-id',file.readline())
+    server.sendmail('sender_mail-id', to, content)
     server.close()
 
 
@@ -171,7 +173,8 @@ if __name__ == "__main__":
             continue
             
         elif 'play song' in query:
-            song_dir = 'D:\Songs'
+            # enter the songs folder path 
+            song_dir = 'songs_folder_path'
 
             #TO PLAY A RANDOM SONG
             
@@ -180,7 +183,8 @@ if __name__ == "__main__":
             # os.startfile(os.path.join(song_dir, song[file]))
 
             #TO PRINT THE LIST OF THE SONGS 
-            # SPEAK THE FILE NUMBER TO PLAY THE SONG --- eg. - 2
+            # SPEAK THE FILE NUMBER TO PLAY THE SONG --- eg. - 4
+            
             a=1
             ls1 = list()
             ls2 = list()
@@ -207,7 +211,8 @@ if __name__ == "__main__":
                 quit()
             
         elif 'video song' in query:
-            video_dir = 'D:\Video Songs'
+            # enter the video songs folder path
+            video_dir = 'video-song_folder_path'
 
             #TO PLAY A RANDOM VIDEO SONG
             
@@ -233,7 +238,6 @@ if __name__ == "__main__":
             file = cross_check(takeCommand())
             while file == 'None':
                 speak_slow('Say file number again please')
-                speak_slow('Say file number again please')
                 file = cross_check(takeCommand())
             file = int(file)
             speak('Should i close the program while playing video songs Sir')
@@ -245,7 +249,8 @@ if __name__ == "__main__":
                 quit()
             
         elif 'movie' in query:
-            movie_dir = 'D:\Movie'
+            # enter the movies folder path
+            movie_dir = 'movie_folder_path'
 
             #TO PLAY A RANDOM VIDEO SONG
             
@@ -283,10 +288,14 @@ if __name__ == "__main__":
 
         elif 'web series' in query:
 
-            # path = "path\web_series_folder\web_series_particular\web_series_season\web_series_episode"
+            # path_syntax = "path\web_series_folder\web_series_particular\web_series_season\web_series_episode"
+        
             # example = "D:\Web Series\Sherlock Holmes\Sherlock Holmes S02\Episode-1"
+            
+            # enter the web series folder path
+            #web_series_path = "D:\Web Series"
 
-            web_series_folder = 'D:\Web Series'
+            web_series_folder = 'web_series_path'
             a=1
             ls1 = list()
             ls2 = list()
@@ -346,7 +355,8 @@ if __name__ == "__main__":
             speak_slow(f"Sir, the time is {strTime}")
 
         elif 'open code' in query:
-            codePath = 'D:\\MI\\VSCode-win32-x64-1.47.2\\Code.exe'
+            # enter the vs code application path
+            codePath = 'vs_code_path'
             speak('Should i close the program while opening VS-Code Sir')
             cmd = takeCommand()
             speak('opening vs code')
@@ -359,7 +369,7 @@ if __name__ == "__main__":
             speak('What do you want me to search for ?')
             search = takeCommand()
             url = 'https://google.com/search?q='+search
-            speak('Should i close the program while opening google Sir')
+            speak_slow('Should i close the program while searchig %s on google Sir' %search)
             cmd = takeCommand()
             speak('searching %s on google' %search)
             webbrowser.get().open_new_tab(url)
@@ -372,7 +382,7 @@ if __name__ == "__main__":
             speak('What do you want me to search for ? ')
             search = takeCommand()
             url = 'https://www.youtube.com/results?search_query=' + search
-            speak('Should i close the program while opening google Sir')
+            speak_slow('Should i close the program while searching %s on youtube Sir' %search)
             cmd = takeCommand()
             speak('searching %s on youtube' %search)
             webbrowser.get().open_new_tab(url)
@@ -384,7 +394,7 @@ if __name__ == "__main__":
             speak('What location should i search for')
             location = takeCommand()
             url = 'https://google.co.in/maps/place/'+location+'/&amp;'
-            speak('Should i close the program while opening google Sir')
+            speak_slow('Should i close the program while searching %s on google maps Sir' %location)
             cmd = takeCommand()
             speak_slow('Here is the location of'+location)
             webbrowser.get().open_new_tab(url)
@@ -394,10 +404,11 @@ if __name__ == "__main__":
             
         
         elif 'email' in query:
-            speak('To whom should i send mail...')
+            speak_slow('To whom should i send mail...')
             c = takeCommand()
             C = check_email(c.lower())
             while C!='True':
+                # update mail_list.py by adding your receiver name and mail-id
                 speak_slow('Sorry... The Receiver is not in the list')
                 c = takeCommand()
                 C = check_email(c.lower())
@@ -418,21 +429,30 @@ if __name__ == "__main__":
             speak_slow('Darshil is my master. He created me...')
         
         elif 'your name' in query:
-            speak_slow('My name is JARVIS')
+            speak_slow('My name is JARVIS...')
         
         elif 'stands for' in query:
-            speak_slow('JARVIS stands for, JUST A RATHER VERY INTELLIGENT SYSTEM')
+            speak_slow('JARVIS stands for, JUST A RATHER VERY INTELLIGENT SYSTEM...')
 
         elif 'github' in query:
-            speak('Should i close the program while opening google Sir')
+            speak_slow('Should i close the program while opening github Sir')
             cmd = takeCommand()
-            webbrowser.get().open_new_tab('https://github.com/Darshil-Papalkar')
+            # enter the github link
+            webbrowser.get().open_new_tab('github_link')
+            if 'yes' in cmd or 'exit' in cmd or 'close' in cmd:
+                speak('GoodBye Sir, Have a nice day..!')
+                quit()
+        elif 'linkedin' in query:
+            speak_slow('Should i close the program while opening linkedin Sir')
+            cmd = takeCommand()
+            # enter linkedin account link
+            webbrowser.get().open_new_tab('linkedin_link')
             if 'yes' in cmd or 'exit' in cmd or 'close' in cmd:
                 speak('GoodBye Sir, Have a nice day..!')
                 quit()
 
         elif 'dictionary' in query:
-            speak('What do you want me to search for ? ')
+            speak_slow('What do you want me to search in dictionary ? ')
             search = takeCommand()
             translate(search)
 
@@ -462,9 +482,10 @@ if __name__ == "__main__":
                 "15. stands for -- to know my name's full form\n"+
                 '16. open code -- to open vs code\n'+
                 '17. github -- to open the github\n'+
-                '18. dictionary -- to search for in dictionary\n'+
-                '19. news -- to seach the current news\n'+
-                '20. exit -- to exit this program\n'
+                '18. linkedin -- to open linkedin account\n'+
+                '19. dictionary -- to search for in dictionary\n'+
+                '20. news -- to seach the current news\n'+
+                '21. exit -- to exit this program\n'
                 )
             speak('Sir, I can perform tasks stated below')
 
