@@ -2,8 +2,7 @@
 
 A program which recognises the tasks given by voice and perform given task.
 
-_*To Know What Program can do more say:*_
-  **What can you do**
+_*To Know What Program can do more say:*_  **What can you do**
  
 
 ## This Program Can Perform these commands
@@ -44,9 +43,12 @@ _*To Know What Program can do more say:*_
 
 18.**Exit** ( To Exit the program )
 
+## General Instruction
 
-*Enter your receiver's *name* with their *mail id* in **mail_list** file.*
+* *Enter your receiver's *name* with their *mail id* in **mail_list** file.*
 
-*Get your **api key** from [NEWS API](https://newsapi.org/) and paste it in **line 58** in main.py*
+* *Get your **api key** from [NEWS API](https://newsapi.org/) and paste it in **line 58** in main.py*
 
-_Save your mail-id *password* in a text file and paste the path in **line 132** in main.py_
+* *Save your mail-id _password_ in a text file and paste the path in **line 132** in main.py*<br/>
+
+***To Know more go through the comments in code***
