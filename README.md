@@ -6,7 +6,7 @@ _*To Know What Program can do more say:*_
   **What can you do**
  
 
-**You Can Perform these commands**
+**This Program Can Perform these commands**
 1. *Search Wikipedia* ( Search about anything on wikipedia )
 2. *Open Youtube* ( Open youtube on Web-Browser )
 3. *Open Google* ( Open google on Web-Browser )
@@ -27,5 +27,7 @@ _*To Know What Program can do more say:*_
 18.*Exit* ( To Exit the program )
 
 *Enter your receiver's *name* with their *mail id* in **mail_list** file.*
+
 *Get your **api key** from [NEWS API](https://newsapi.org/) and paste it in **line 58** in main.py*
+
 _Save your mail-id *password* in a text file and paste the path in **line 132** in main.py_
