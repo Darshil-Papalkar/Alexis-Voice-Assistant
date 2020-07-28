@@ -8,23 +8,23 @@ _*To Know What Program can do more say:*_
 
 ## This Program Can Perform these commands
 
-1. **Search Wikipedia** ( Search about anything on wikipedia )
+1.  **Search Wikipedia** ( Search about anything on wikipedia )
 
-2. **Open Youtube** ( Open youtube on Web-Browser )
+2.  **Open Youtube** ( Open youtube on Web-Browser )
 
-3. **Open Google** ( Open google on Web-Browser )
+3.  **Open Google** ( Open google on Web-Browser )
 
-4. **Play Song** ( Play Music from the provided directory )
+4.  **Play Song** ( Play Music from the provided directory )
 
-5. **Play Video Song** ( Play Video song from the provided directory )
+5.  **Play Video Song** ( Play Video song from the provided directory )
 
-6. **Play Movie** ( Play Movie from the provided directory )
+6.  **Play Movie** ( Play Movie from the provided directory )
 
-7. **Play Web Series** ( Play Web Series from the provided directory )
+7.  **Play Web Series** ( Play Web Series from the provided directory )
 
-8. **Time** ( Get the current time of your system )
+8.  **Time** ( Get the current time of your system )
 
-9. **Open Code** ( Open VS-Code application on your system )
+9.  **Open Code** ( Open VS-Code application on your system )
 
 10.**Search** ( To search anything on browser )
 
