@@ -176,12 +176,6 @@ if __name__ == "__main__":
             # enter the songs folder path 
             song_dir = 'songs_folder_path'
 
-            #TO PLAY A RANDOM SONG
-            
-            # song = os.listdir(song_dir)
-            # file = random.randint(0, len(song)-1)
-            # os.startfile(os.path.join(song_dir, song[file]))
-
             #TO PRINT THE LIST OF THE SONGS 
             
             a=1
@@ -214,12 +208,6 @@ if __name__ == "__main__":
             # enter the video songs folder path
             video_dir = 'video-song_folder_path'
 
-            #TO PLAY A RANDOM VIDEO SONG
-            
-            # songs = os.listdir(video_dir)
-            # file = random.randint(0,len(songs)-1)
-            # os.startfile(os.path.join(video_dir, songs[file]))
-
             #TO PRINT THE LIST OF THE VIDEO SONGS
 
             a=1
@@ -251,12 +239,6 @@ if __name__ == "__main__":
         elif 'movie' in query:
             # enter the movies folder path
             movie_dir = 'movie_folder_path'
-
-            #TO PLAY A RANDOM MOVIE
-            
-            # songs = os.listdir(movie_dir)
-            # file = random.randint(0,len(songs)-1)
-            # os.startfile(os.path.join(movie_dir, songs[file]))
 
             #TO PRINT THE LIST OF THE MOVIE
 
