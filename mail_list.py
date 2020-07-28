@@ -1,4 +1,5 @@
 email = dict()
+# edit by entering person name on left and mail id on right
 email['myself']='myself@gmail.com' # enter the mail id 
 email['father']='father@gmail.com' # enter the mail id
 email['mother']='mother@gmail.com' # enter the mail id
