@@ -1,4 +1,4 @@
-# Jarvis-Assistant
+# Jarvis-Voice-Assistant
 
 A program which recognises the tasks given by voice and perform given task.
 
