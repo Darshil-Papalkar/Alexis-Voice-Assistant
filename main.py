@@ -183,7 +183,6 @@ if __name__ == "__main__":
             # os.startfile(os.path.join(song_dir, song[file]))
 
             #TO PRINT THE LIST OF THE SONGS 
-            # SPEAK THE FILE NUMBER TO PLAY THE SONG --- eg. - 4
             
             a=1
             ls1 = list()
@@ -197,6 +196,7 @@ if __name__ == "__main__":
                 print(ls1[b],ls2[b])
                 b += 1
             speak("Sure Sir, Which File would you like to play")
+            # SPEAK THE FILE NUMBER TO PLAY THE SONG --- eg. - 4
             file = cross_check(takeCommand())
             while file == 'None':
                 speak_slow('Say file number again please')
@@ -221,7 +221,6 @@ if __name__ == "__main__":
             # os.startfile(os.path.join(video_dir, songs[file]))
 
             #TO PRINT THE LIST OF THE VIDEO SONGS
-            # SPEAK THE FILE NUMBER TO PLAY THE VIDEO SONG --- eg. - 4
 
             a=1
             ls1 = list()
@@ -235,6 +234,7 @@ if __name__ == "__main__":
                 print(ls1[b],ls2[b])
                 b += 1
             speak("Sure Sir, Which File would you like to play")
+            # SPEAK THE FILE NUMBER TO PLAY THE VIDEO SONG --- eg. - 4
             file = cross_check(takeCommand())
             while file == 'None':
                 speak_slow('Say file number again please')
@@ -252,14 +252,13 @@ if __name__ == "__main__":
             # enter the movies folder path
             movie_dir = 'movie_folder_path'
 
-            #TO PLAY A RANDOM VIDEO SONG
+            #TO PLAY A RANDOM MOVIE
             
-            # songs = os.listdir(video_dir)
+            # songs = os.listdir(movie_dir)
             # file = random.randint(0,len(songs)-1)
-            # os.startfile(os.path.join(video_dir, songs[file]))
+            # os.startfile(os.path.join(movie_dir, songs[file]))
 
-            #TO PRINT THE LIST OF THE VIDEO SONGS
-            # SPEAK THE FILE NUMBER TO PLAY THE VIDEO SONG --- eg. - 4
+            #TO PRINT THE LIST OF THE MOVIE
 
             a=1
             ls1 = list()
@@ -273,6 +272,7 @@ if __name__ == "__main__":
                 print(ls1[b],ls2[b])
                 b += 1
             speak("Sure Sir, Which File would you like to play")
+            # SPEAK THE FILE NUMBER TO PLAY THE MOVIE --- eg. - 4
             file = cross_check(takeCommand())
             while file == 'None':
                 speak_slow('Say file number again please')
@@ -293,9 +293,8 @@ if __name__ == "__main__":
             # example = "D:\Web Series\Sherlock Holmes\Sherlock Holmes S02\Episode-1"
             
             # enter the web series folder path
-            #web_series_path = "D:\Web Series"
 
-            web_series_folder = 'web_series_path'
+            web_series_folder = 'web_series_path' #web_series_path = "D:\Web Series"
             a=1
             ls1 = list()
             ls2 = list()
@@ -308,6 +307,7 @@ if __name__ == "__main__":
                 print(ls1[b],ls2[b])
                 b += 1
             speak_slow("Sure sir, which series would you like to open")
+            # SPEAK THE FILE NUMBER TO OPEN FOLDER
             file = cross_check(takeCommand())
             while file == 'None':
                 speak_slow('Say file number again please')
@@ -321,6 +321,7 @@ if __name__ == "__main__":
                 print(a,iter)
                 a+=1
             speak_slow("Which season would you like to open")
+            # SPEAK THE FILE NUMBER TO OPEN SEASON FOLDER
             file = cross_check(takeCommand())
             while file == 'None':
                 speak_slow('Say file number again please')
@@ -338,6 +339,7 @@ if __name__ == "__main__":
                 print(a,iter)
                 a+=1
             speak_slow("Which episode would you like to play")
+            # SPEAK THE FILE NUMBER TO RUN THE EPISODE
             file = cross_check(takeCommand())
             while file == 'None':
                 speak_slow('Say file number again please')
@@ -355,8 +357,8 @@ if __name__ == "__main__":
             speak_slow(f"Sir, the time is {strTime}")
 
         elif 'open code' in query:
-            # enter the vs code application path
-            codePath = 'vs_code_path'
+            
+            codePath = 'vs_code_path' # enter the vs code application path
             speak('Should i close the program while opening VS-Code Sir')
             cmd = takeCommand()
             speak('opening vs code')
