@@ -189,6 +189,7 @@ if __name__ == "__main__":
             while b < len(os.listdir(song_dir)):
                 print(ls1[b],ls2[b])
                 b += 1
+            print("Speak the file number to play. eg--4")
             speak("Sure Sir, Which File would you like to play")
             # SPEAK THE FILE NUMBER TO PLAY THE SONG --- eg. - 4
             file = cross_check(takeCommand())
@@ -221,6 +222,7 @@ if __name__ == "__main__":
             while b < len(os.listdir(video_dir)):
                 print(ls1[b],ls2[b])
                 b += 1
+            print("Speak the file number to play. eg--4")
             speak("Sure Sir, Which File would you like to play")
             # SPEAK THE FILE NUMBER TO PLAY THE VIDEO SONG --- eg. - 4
             file = cross_check(takeCommand())
@@ -253,6 +255,7 @@ if __name__ == "__main__":
             while b < len(os.listdir(movie_dir)):
                 print(ls1[b],ls2[b])
                 b += 1
+            print("Speak the file number to play. eg--4")
             speak("Sure Sir, Which File would you like to play")
             # SPEAK THE FILE NUMBER TO PLAY THE MOVIE --- eg. - 4
             file = cross_check(takeCommand())
@@ -288,6 +291,7 @@ if __name__ == "__main__":
             while b < len(os.listdir(web_series_folder)):
                 print(ls1[b],ls2[b])
                 b += 1
+            print("Speak the folder number to open. eg--4")
             speak_slow("Sure sir, which series would you like to open")
             # SPEAK THE FILE NUMBER TO OPEN FOLDER
             file = cross_check(takeCommand())
@@ -302,6 +306,7 @@ if __name__ == "__main__":
             for iter in ls3:
                 print(a,iter)
                 a+=1
+            print("Speak the folder number to open. eg--4")
             speak_slow("Which season would you like to open")
             # SPEAK THE FILE NUMBER TO OPEN SEASON FOLDER
             file = cross_check(takeCommand())
@@ -320,6 +325,7 @@ if __name__ == "__main__":
             for iter in ls4:
                 print(a,iter)
                 a+=1
+            print("Speak the file number to play. eg--4")
             speak_slow("Which episode would you like to play")
             # SPEAK THE FILE NUMBER TO RUN THE EPISODE
             file = cross_check(takeCommand())
