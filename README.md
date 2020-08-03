@@ -1,4 +1,4 @@
-# Jarvis-Voice-Assistant
+# Alexis-Voice-Assistant
 
 A program which recognises the tasks given by voice and perform given task.
 
