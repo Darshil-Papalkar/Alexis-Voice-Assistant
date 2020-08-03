@@ -15,7 +15,7 @@ from num import check
 data = json.load(open('data.json'))
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id )
+engine.setProperty('voice', voices[2].id )
 
 def speak(audio):
     engine.say(audio)
@@ -77,7 +77,7 @@ def wishMe():
         speak('Good Afternoon!')
     else:
         speak('Good Evening!')
-    speak('I am Jarvis sir. How may i help you')
+    speak('I am Alexis sir. How may i help you')
 
 def takeCommand():
     r = sr.Recognizer()
@@ -90,7 +90,7 @@ def takeCommand():
     try:
         print('Recognizing...')
         query = r.recognize_google(audio, language='en-US').lower()
-        print(f"User said: {query}\n")
+        print(f"User said: {query} .\n".capitalize())
     
     except Exception as e:
         # print(e)
@@ -391,7 +391,6 @@ if __name__ == "__main__":
             if 'yes' in cmd or 'exit' in cmd or 'close' in cmd:
                 speak('GoodBye Sir, Have a nice day..!')
                 quit()
-            
         
         elif 'email' in query:
             speak_slow('To whom should i send mail...')
@@ -414,15 +413,18 @@ if __name__ == "__main__":
             except Exception as e:
                 print(e+'\n')
                 speak('Sorry Unable to send email at this moment')
+                
+         elif 'how are you' in query:
+            speak_slow('I am fine sir, Good to see you back')
 
         elif 'your master' in query:
             speak_slow('Darshil is my master. He created me...')
         
         elif 'your name' in query:
-            speak_slow('My name is JARVIS...')
+            speak_slow('My name is Alexis...')
         
         elif 'stands for' in query:
-            speak_slow('JARVIS stands for, JUST A RATHER VERY INTELLIGENT SYSTEM...')
+            speak_slow('Alexis is a given name derived from several saints venerated by the Eastern Orthodox and Roman Catholic churches, including Saint Alexis of Rome. Alexis means "helper, defender".')
 
         elif 'github' in query:
             speak_slow('Should i close the program while opening github Sir')
@@ -432,6 +434,7 @@ if __name__ == "__main__":
             if 'yes' in cmd or 'exit' in cmd or 'close' in cmd:
                 speak('GoodBye Sir, Have a nice day..!')
                 quit()
+                
         elif 'linkedin' in query:
             speak_slow('Should i close the program while opening linkedin Sir')
             cmd = takeCommand()
