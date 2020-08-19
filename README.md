@@ -2,7 +2,7 @@
 
 A program which recognises the tasks given by voice and perform given task.
 
-_*To Know What Program can do more say:*_  **What can you do**
+_*To Know What Program can do more ask:*_  **What can you do**
  
 
 ## This Program Can Perform these commands
@@ -21,9 +21,9 @@ _*To Know What Program can do more say:*_  **What can you do**
 
 7.  **Play Web Series** ( Play Web Series from the provided directory )
 
-8.  **Time** ( Get the current time of your system )
+8.  **Current Time** ( Get the current time of your system )
 
-9.  **Open Code** ( Open VS-Code application on your system )
+9.  **Open VS Code** ( Open VS-Code application on your system )
 
 10.**Search** ( To search anything on browser )
 
@@ -41,14 +41,16 @@ _*To Know What Program can do more say:*_  **What can you do**
 
 17.**Current News** ( To know Current News )
 
-18.**Exit** ( To Exit the program )
+18.**Back** ( To go back again in main program at any point )
+
+19.**Exit** ( To Exit/Quit the program )
 
 ## General Instruction
 
 * *Enter your receiver's *name* with their *mail id* in **mail_list** file.*
 
-* *Get your **api key** from [NEWS API](https://newsapi.org/) and paste it in **line 58** in main.py*
+* *Get your **api key** from [NEWS API](https://newsapi.org/) and paste it in speak.py*
 
-* *Save your mail-id _password_ in a text file and paste the path in **line 132** in main.py*<br/>
+* *Save your mail-id _password_ in a text file and paste the path and also sender's mail-id in main.py*<br/>
 
-***To Know more go through the comments in code***
+***To Know more go through the comments in code. They will guide you through the Code***
