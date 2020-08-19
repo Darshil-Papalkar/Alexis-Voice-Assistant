@@ -1,31 +1,17 @@
-number = dict()
-number['one']='1'
-number['two']='2'
-number['three']='3'
-number['four']='4'
-number['five']='5'
-number['six']='6'
-number['seven']='7'
-number['eight']='8'
-number['nine']='9'
-number['ten']='10'
-number['eleven']='11'
-number['twelve']='12'
-number['thirteen']='13'
-number['fourteen']='14'
-number['fifteen']='15'
-number['sixteen']='16'
-number['seventeen']='17'
-number['eighteen']='18'
-number['nineteen']='19'
-number['twenty']='20'
+number = {'one': '1', 'two': '2', 'three': '3', 'four': '4', 'five': '5', 'six': '6', 'seven': '7', 'eight': '8',
+          'nine': '9', 'ten': '10', 'eleven': '11', 'twelve': '12', 'thirteen': '13', 'fourteen': '14', 'fifteen': '15',
+          'sixteen': '16', 'seventeen': '17', 'eighteen': '18', 'nineteen': '19', 'twenty': '20'}
+
 
 def check(num):
-    for k,v in number.items():
-        if k==num:
-            return(int(v))
-            
-        
-if __name__=='__main__':
+    """Checks for a word whether it is a number or not"""
+    for k, v in number.items():
+        if k == num:
+            return v
+    return 'empty'
+
+
+if __name__ == '__main__':
     print(number)
-    check(input())
+    a = check(input())
+    print(a)
