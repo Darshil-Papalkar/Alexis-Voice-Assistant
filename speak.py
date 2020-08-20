@@ -4,6 +4,7 @@ import pyttsx3
 import requests
 import speech_recognition as sr
 from num import check
+from playsound import playsound
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -24,7 +25,7 @@ def speak_news():
 
     site = ('http://newsapi.org/v2/top-headlines?'
             'country=in&'
-            'apiKey= #############')  # enter api key (Find API key in the Readme section
+            'apiKey=##############')  # enter api key (Get your api key from the link provided in the Readme section)
     news = requests.get(site).text
     news_dict = json.loads(news)
     arts = news_dict['articles']
@@ -44,10 +45,11 @@ def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print('\nListening...')
+        playsound('pop.mp3')
         r.pause_threshold = 1
         r.energy_threshold = 495
         r.adjust_for_ambient_noise(source, duration=1.5)
-        audio = r.listen(source)
+        audio = r.listen(source, timeout=8)
     try:
         print('Recognizing...\n')
         query = r.recognize_google(audio, language='en-US').lower()
@@ -70,15 +72,15 @@ def command(query):
 
 
 def cross_check(word):
-    """It cross checks a word whether it exists in number or not"""
+    """It cross checks the word whether it is a number or not"""
     for letter in word.split():
         if letter.isdigit():
             return letter
         else:
             continue
-
+            
     # if digit is not recognised spell number in words like --" o n e "
-
+    
     word = word.lower()
     if len(get_close_matches(word, data.keys())) > 0:
         for _ in range(len(get_close_matches(word, data.keys()))):
@@ -99,5 +101,6 @@ def cross_check(word):
 
 
 if __name__ == "__main__":
-    speak('Hello Sir')
+    speak('Hello Sir, How can I help you?')
+#     takeCommand()
     speak_news()
