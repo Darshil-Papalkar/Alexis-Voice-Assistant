@@ -3,7 +3,9 @@ from speak import speak, takeCommand, command, cross_check
 
 
 def directory(filepath):
+    
     """Searches for the file in the provides filepath as Argument and opens it"""
+    
     file = 'empty'
     cmd = 'empty'
     count = 1
@@ -19,9 +21,7 @@ def directory(filepath):
         file_num += 1
     print("\nSpeak the file number to open. eg--4")
     speak("Sure Sir")
-
     # SPEAK THE FILE NUMBER TO PLAY THE SONG --- eg. - 4
-
     while file == 'empty':
         speak('Which File would you like to open')
         file = command(takeCommand())
@@ -30,13 +30,12 @@ def directory(filepath):
         elif file == 'exit':
             exit()
         file = cross_check(file)
-        if file.isdigit():
+        try:
             if int(file) < count:
                 break
             else:
                 file = 'empty'
-                continue
-        else:
+        except Exception:
             file = 'empty'
         speak('Please speak the file number to open')
     file = int(file)
@@ -44,15 +43,14 @@ def directory(filepath):
     if 'series' in filepath.lower():
         web_series_particular = filepath + "\%s" % ls2[file - 1]
         web_series = os.listdir(filepath + "\%s" % ls2[file - 1])
+#         print(web_series)
         ls3 = list(web_series)
         count = 1
         for a in ls3:
             print(count, a)
             count += 1
         print("\nSpeak the folder number to open. eg--4\n")
-
         # SPEAK THE FILE NUMBER TO OPEN SEASON FOLDER
-
         file = 'empty'
         while file == 'empty':
             speak("Which season would you like to open")
@@ -62,14 +60,13 @@ def directory(filepath):
             elif file == 'exit':
                 exit()
             file = cross_check(file)
-            if file.isdigit():
+            try:
                 if int(file) < count:
                     break
                 else:
                     file = 'empty'
-                    continue
-            else:
-                file = 'empty'
+            except Exception:
+                file = "empty"
             speak('Please speak the file number to open')
         file = int(file)
         count = 1
@@ -79,15 +76,14 @@ def directory(filepath):
         # noinspection PyUnboundLocalVariable
         web_series_season = web_series_particular + f"{a}"
         web_series_sea = os.listdir(web_series_particular + "\%s" % a)
+#         print(web_series_sea)
         ls4 = list(web_series_sea)
         count = 1
         for a in ls4:
             print(count, a)
             count += 1
         print("\nSpeak the file number to play. eg--4\n")
-
         # SPEAK THE FILE NUMBER TO RUN THE EPISODE
-
         file = 'empty'
         while file == 'empty':
             speak("Which episode would you like to play")
@@ -99,14 +95,13 @@ def directory(filepath):
             elif file == 'empty':
                 continue
             file = cross_check(file)
-            if file.isdigit():
+            try:
                 if int(file) < count:
                     break
                 else:
                     file = 'empty'
-                    continue
-            else:
-                file = 'empty'
+            except Exception:
+                file = "empty"
             speak('Please speak the file number to open')
         file = int(file)
         count = 1
@@ -118,6 +113,7 @@ def directory(filepath):
             cmd = command(takeCommand())
         speak('playing series')
         os.startfile(web_series_season + "\%s" % a)
+#         print(web_series_season)
         if cmd == 'None':
             return 'None'
         elif cmd == 'exit':
@@ -136,4 +132,4 @@ def directory(filepath):
 
 
 if __name__ == "__main__":
-    directory('C:\\Users\\DARSHIL\\OneDrive_1\\OneDrive\\Pictures\\Saved Pictures')
+    directory('C:\\Users\\User1\\OneDrive_1\\songs')
