@@ -8,8 +8,10 @@ import wikipedia
 from directory import directory
 from mail_list import mail, check_email
 from speak import speak, speak_news, takeCommand, command
+from email.message import EmailMessage
 
 data = json.load(open('data.json'))
+email = EmailMessage()
 
 
 def wishMe():
@@ -52,14 +54,14 @@ def translate(word):
         speak("Word doesn't exist. Please double check it.")
 
 
-def sendEmail(to, content):
-    server = smtplib.SMTP('smtp.gmail.com', 587)
+def sendEmail(email):
+    server = smtplib.SMTP(host='smtp.gmail.com', port=587)
     server.ehlo()
     server.starttls()
     # enter file_path of password stored in text file
     file = open('file_path_of_text_file_of_password', 'r')
     server.login("sender's_main_id", file.readline())
-    server.sendmail("sender's_mail_id", to, content)
+    server.send_message(email)
     server.close()
 
 
@@ -130,9 +132,7 @@ if __name__ == "__main__":
                 continue
 
         elif 'song' in query or 'music' in query:
-            
-            # enter the songs folder path
-
+            # enter the songs folder path 
             song_dir = 'music_folder_path'
             file = directory(song_dir)
             if file == 'None':
@@ -164,9 +164,7 @@ if __name__ == "__main__":
             speak(f"Sir, the time is {strTime}")
 
         elif 'code' in query:
-            
             # enter the vs code application path
-            
             codePath = 'vs_code_path'
             while cmd == 'empty':
                 speak('Should i close the program while opening VS-Code Sir')
@@ -289,20 +287,18 @@ if __name__ == "__main__":
                 speak("Going back to main program... Continuing")
                 continue
             client, receiver = mail(find)
+            email['from'] = "Darshil Papalkar"
+            email['to'] = receiver
+            speak("What is the subject for email?")
+            email['subject'] = command(takeCommand())
             try:
                 content = 'empty'
                 finish = False
                 while content == 'empty':
                     speak(f'What should i deliver to {client} ?')
                     content = command(takeCommand())
-                if content == "None":
-                    speak('Going back to main program..Continuing')
-                    continue
-                elif content == 'exit':
-                    exit()
-                content = content.capitalize() + " ."
-                to = receiver
-                sendEmail(to, content)
+                email.set_content(content.capitalize() + " .")
+                sendEmail(email)
                 speak('Email Has been sent')
             except Exception as e:
                 print(e, "\n")
@@ -379,6 +375,7 @@ if __name__ == "__main__":
             continue
 
         elif 'exit' in query:
+            speak("Exiting Program!")
             exit()
 
         elif 'what can you do' in query:
