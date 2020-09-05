@@ -3,8 +3,8 @@ from difflib import get_close_matches
 import pyttsx3
 import requests
 import speech_recognition as sr
-from num import check
 from playsound import playsound
+from word2number import w2n
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -49,7 +49,7 @@ def takeCommand():
         r.pause_threshold = 1
         r.energy_threshold = 495
         r.adjust_for_ambient_noise(source, duration=1.5)
-        audio = r.listen(source, timeout=8)
+        audio = r.listen(source, timeout=15)
     try:
         print('Recognizing...\n')
         query = r.recognize_google(audio, language='en-US').lower()
@@ -72,15 +72,15 @@ def command(query):
 
 
 def cross_check(word):
+    
     """It cross checks the word whether it is a number or not"""
+    
     for letter in word.split():
         if letter.isdigit():
             return letter
         else:
             continue
-            
     # if digit is not recognised spell number in words like --" o n e "
-    
     word = word.lower()
     if len(get_close_matches(word, data.keys())) > 0:
         for _ in range(len(get_close_matches(word, data.keys()))):
@@ -93,7 +93,7 @@ def cross_check(word):
             if 'no' in ans:
                 return 'None'
             else:
-                return check(x)
+                return w2n.word_to_num(x)
     else:
         print("Word doesn't exist. Please double check it.\n")
         speak("Word doesn't exist. Please double check it.")
@@ -102,5 +102,5 @@ def cross_check(word):
 
 if __name__ == "__main__":
     speak('Hello Sir, How can I help you?')
-#     takeCommand()
+    takeCommand()
     speak_news()
